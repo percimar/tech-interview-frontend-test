@@ -11,3 +11,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.CenteredForm {
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #CBF1F5;
+  min-width: 260px;
+  width: min(80%, 400px);
+  min-height: 600px;
+  min-height: min(90%, 700px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CenteredForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+.FormTitle {  
+  font-size: 2em;
+  margin: 0;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.FormSubmit {
+  padding: 8px 16px;
+  font-size: large;
+  border-radius: 4px;
+  border: unset;
+  background-color: #393E46;
+  color: white;
+  outline-color: #00ADB5;
+  align-self: flex-end;
+  margin-top: 20px;
+}
+
+.FormSubmit:hover {
+  background-color: #eeeeee;
+  color: black;
+  border: 2px solid #00ADB5;
+  margin: 18px -2px -2px -2px; //workaround to avoid layout shift on border
+}

@@ -1,0 +1,30 @@
+.FormLabel {
+    display: block;
+    font-weight: 600;
+    font-size: 1.25em;
+    line-height: 2em;
+    align-self: flex-start;
+    margin-top: 20px;
+}
+  
+.FormInput {
+    font-size: 1em;
+    line-height: 1.6em;
+    padding: 4px 8px;
+    min-height: 22px;
+    border: unset;
+    border-radius: 4px;
+    outline-color: #00ADB5;
+    background-color: rgb(255, 255, 255);
+    min-width: 206px;
+    width: 100%;
+}
+
+.FormError {
+    font-size: 0.8em;
+    line-height: 1.2em;
+    height: 1.2em;
+    color: red;
+    align-self: flex-start;
+    margin-top: 4px;
+}
