@@ -1,5 +1,8 @@
 import * as React from "react";
 
+// Based on my implementation, this could just be local state in the NavBar
+// component, however based on the requirements it has been implemented as
+// global state accessible by any component in the tree.
 const NavContext = React.createContext<
   | {
       isOpen: Boolean;

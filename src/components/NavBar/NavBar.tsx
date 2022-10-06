@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import "./NavBar.scss";
 import useLocales from "../../hooks/useLocales";
-import { NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { useNav } from "../../contexts/NavContext";
+import { useLang } from "../../contexts/LangContext";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const strings = useLocales();
   const { user } = useAuth();
+  const { isOpen, setIsOpen } = useNav();
+  const { lang, setLang } = useLang();
 
   return (
     <div className="NavBar">
@@ -23,8 +27,7 @@ const NavBar = () => {
           <>
             <NavLink
               className={({ isActive }) => (isActive ? "Active Link" : "Link")}
-              to="/"
-              end
+              to="/login"
             >
               {strings.general.login}
             </NavLink>
