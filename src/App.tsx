@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
+import MainLayout from "./components/MainLayout/MainLayout";
 import { AuthProvider } from "./contexts/AuthContext";
 import { LangProvider } from "./contexts/LangContext";
 import { NavProvider } from "./contexts/NavContext";
@@ -16,10 +17,12 @@ function App() {
         <AuthProvider>
           <NavProvider>
             <Routes>
-              <Route path="/" element={<PageLogin />} />
-              <Route path="/register" element={<PageRegister />} />
-              <Route path="/home" element={<PageHome />} />
-              <Route path="*" element={<Page404 />} />
+              <Route element={<MainLayout />}>
+                <Route path="/" element={<PageLogin />} />
+                <Route path="/register" element={<PageRegister />} />
+                <Route path="/home" element={<PageHome />} />
+                <Route path="*" element={<Page404 />} />
+              </Route>
             </Routes>
           </NavProvider>
         </AuthProvider>
