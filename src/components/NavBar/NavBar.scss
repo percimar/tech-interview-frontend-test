@@ -1,11 +1,20 @@
 .NavBar {
-    width: 30%;
+    width: min(30%, 250px);
     height: 100vh;
     background-color: #222831;
     color:white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: margin-left 400ms ease-out;
+}
+
+.NavBar.NavClosed {
+    margin-left: calc(min(30%, 250px) * -1) ;
+}
+
+.NavBar.NavOpen {
+    margin-left: 0;
 }
 
 @mixin navLinks {
@@ -43,4 +52,35 @@
 
 .Active {
     background-color: #00ADB5;
+}
+
+.FAB {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 20px;
+    background-color: #393E46;
+    color: white;
+    font-size: 22px;
+    border-radius: 50px;
+    text-align: center;
+    border: none;
+    transition: left 400ms ease-out, transform 400ms ease-in-out, margin-left 10ms;
+}
+
+.FAB:hover {
+    background-color: #00ADB5;
+    color: white;
+}
+
+.FAB.NavOpen {
+    left: min(30%, 250px);
+    transform: rotate(0);
+    margin-left: -15px;
+}
+
+.FAB.NavClosed {
+    left: 0; 
+    transform: rotate(180deg);
+    margin-left: -7px;
 }
