@@ -1,20 +1,39 @@
 import * as React from "react";
 
-type User = { name: string }; // TODO: add more fields
+type User = { username: string }; // TODO: add more fields
 type UserState = User | undefined;
 
 const AuthContext = React.createContext<
   | {
       user: UserState;
-      setUser: React.Dispatch<React.SetStateAction<UserState>>;
+      setUser: (user: UserState) => void;
     }
   | undefined
 >(undefined);
 
 function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = React.useState<UserState>();
+
+  // Check for stored user on load
+  React.useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  // Override setUser to also store user in localStorage
+  const setUserAndStore = (user: UserState) => {
+    setUser(user);
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user: user, setUser: setUser }}>
+    <AuthContext.Provider value={{ user: user, setUser: setUserAndStore }}>
       {children}
     </AuthContext.Provider>
   );

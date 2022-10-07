@@ -18,9 +18,18 @@ function App() {
           path="/"
           element={<Navigate to={user ? "/home" : "/login"} replace />}
         />
-        <Route path="/login" element={<PageLogin />} />
-        <Route path="/register" element={<PageRegister />} />
-        <Route path="/home" element={<PageHome />} />
+        <Route
+          path="/login"
+          element={!user ? <PageLogin /> : <Navigate to="/home" replace />}
+        />
+        <Route
+          path="/register"
+          element={!user ? <PageRegister /> : <Navigate to="/home" replace />}
+        />
+        <Route
+          path="/home"
+          element={user ? <PageHome /> : <Navigate to="/login" replace />}
+        />
         <Route path="*" element={<Page404 />} />
       </Route>
     </Routes>

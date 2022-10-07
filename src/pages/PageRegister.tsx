@@ -1,11 +1,26 @@
 import { useState } from "react";
 import FormInput from "../components/FormInput/FormInput";
 import useLocales from "../hooks/useLocales";
+import { register } from "../api";
 
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "react-query";
 
 const PageRegister = () => {
   const strings = useLocales();
+  const { mutate } = useMutation(register, {
+    onSettled: (success) => {
+      if (success) {
+        navigate("/login", { state: { isRegistered: true } });
+      } else {
+        // json-server returns 500 if username is taken, so we can't distinguish
+        // between that and a server error. Hopefully not a problem with a real
+        // backend.
+        setUsernameError("Username already taken");
+      }
+    },
+  });
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState<string>("");
   const [usernameError, setUsernameError] = useState<string>("");
@@ -53,10 +68,7 @@ const PageRegister = () => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
 
-    if (isFormValid()) {
-      console.log("Registering...");
-      redirect("/login");
-    }
+    if (isFormValid()) mutate({ username, password });
   };
 
   return (

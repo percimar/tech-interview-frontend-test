@@ -1,9 +1,29 @@
 import { useState } from "react";
 import FormInput from "../components/FormInput/FormInput";
 import useLocales from "../hooks/useLocales";
+import { login } from "../api";
 
+import { useLocation, useNavigate } from "react-router-dom";
+import { useMutation } from "react-query";
+import { useAuth, UserState } from "../contexts/AuthContext";
+
+type PageLoginState = { isRegistered?: boolean };
 const PageLogin = () => {
   const strings = useLocales();
+  const location = useLocation();
+  const isRegistered = (location.state as PageLoginState)?.isRegistered;
+  const navigate = useNavigate();
+  const { setUser } = useAuth();
+  const { mutate } = useMutation(login, {
+    onSettled: (user: UserState) => {
+      if (user === undefined) {
+        setPasswordError(strings.auth.invalid_username_or_password);
+      } else {
+        setUser({ username: user.username });
+        navigate("/home");
+      }
+    },
+  });
 
   const [username, setUsername] = useState<string>("");
   const [usernameError, setUsernameError] = useState<string>("");
@@ -31,15 +51,16 @@ const PageLogin = () => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
 
-    if (isFormValid()) {
-      console.log("Logging in...");
-    }
+    if (isFormValid()) mutate({ username, password });
   };
 
   return (
     <div className="CenteredForm">
       <form onSubmit={handleSubmit}>
         <h3 className="FormTitle">{strings.general.login}</h3>
+        {isRegistered && (
+          <span className="FormSuccess">{strings.auth.account_created}</span>
+        )}
         <FormInput
           value={username}
           setValue={setUsername}

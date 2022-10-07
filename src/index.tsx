@@ -8,21 +8,26 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { NavProvider } from "./contexts/NavContext";
 
 import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <LangProvider>
-        <AuthProvider>
-          <NavProvider>
-            <App />
-          </NavProvider>
-        </AuthProvider>
-      </LangProvider>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <LangProvider>
+          <AuthProvider>
+            <NavProvider>
+              <App />
+            </NavProvider>
+          </AuthProvider>
+        </LangProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

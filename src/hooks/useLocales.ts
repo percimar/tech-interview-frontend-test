@@ -19,6 +19,8 @@ type translations = {
         username_must_be_at_least_4_characters: string,
         password_must_be_at_least_8_characters: string,
         passwords_do_not_match: string,
+        account_created: string,
+        invalid_username_or_password: string,
     },
     navbar: {
         title: string
@@ -43,7 +45,9 @@ const en: translations = {
         field_is_required: "This field is required",
         username_must_be_at_least_4_characters: "Username must be at least 4 characters",
         password_must_be_at_least_8_characters: "Password must be at least 8 characters",
-        passwords_do_not_match: "Passwords do not match"
+        passwords_do_not_match: "Passwords do not match",
+        account_created: "Account created successfully, you may now login.",
+        invalid_username_or_password: "Invalid username or password",
     },
     navbar: {
         title: "Tech Test",

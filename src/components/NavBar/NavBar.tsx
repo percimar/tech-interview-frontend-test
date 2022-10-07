@@ -8,9 +8,13 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const strings = useLocales();
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
   const { isOpen } = useNav();
   const { lang, setLang } = useLang();
+
+  const handleLogout = () => {
+    setUser(undefined);
+  };
 
   return (
     <div className={isOpen ? "NavBar NavOpen" : "NavBar NavClosed"}>
@@ -18,12 +22,17 @@ const NavBar = () => {
       <h1>{strings.navbar.title}</h1>
       <div className="TopLinks">
         {user ? (
-          <NavLink
-            className={({ isActive }) => (isActive ? "Active Link" : "Link")}
-            to="/home"
-          >
-            {strings.general.home}
-          </NavLink>
+          <>
+            <NavLink
+              className={({ isActive }) => (isActive ? "Active Link" : "Link")}
+              to="/home"
+            >
+              {strings.general.home}
+            </NavLink>
+            <button className="Link" onClick={handleLogout}>
+              {strings.general.logout + " " + user.username}
+            </button>
+          </>
         ) : (
           <>
             <NavLink
