@@ -39,6 +39,8 @@ const PageRegister = () => {
       setUsernameError(strings.auth.field_is_required);
     } else if (username.length < 4) {
       setUsernameError(strings.auth.username_must_be_at_least_4_characters);
+    } else if (username.length > 16) {
+      setUsernameError(strings.auth.username_cannot_exceed_16_characters);
     } else {
       setUsernameError("");
       userValid = true;

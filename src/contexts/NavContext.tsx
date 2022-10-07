@@ -5,7 +5,7 @@ import * as React from "react";
 // global state accessible by any component in the tree.
 const NavContext = React.createContext<
   | {
-      isOpen: Boolean;
+      isOpen: boolean;
       setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     }
   | undefined

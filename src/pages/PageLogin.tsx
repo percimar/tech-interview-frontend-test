@@ -1,11 +1,11 @@
 import { useState } from "react";
 import FormInput from "../components/FormInput/FormInput";
 import useLocales from "../hooks/useLocales";
-import { login } from "../api";
+import { AuthParams, login } from "../api";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
-import { useAuth, UserState } from "../contexts/AuthContext";
+import { useAuth, type UserState } from "../contexts/AuthContext";
 
 type PageLoginState = { isRegistered?: boolean };
 const PageLogin = () => {
@@ -14,12 +14,12 @@ const PageLogin = () => {
   const isRegistered = (location.state as PageLoginState)?.isRegistered;
   const navigate = useNavigate();
   const { setUser } = useAuth();
-  const { mutate } = useMutation(login, {
+  const { mutate } = useMutation<UserState, unknown, AuthParams>(login, {
     onSettled: (user: UserState) => {
       if (user === undefined) {
         setPasswordError(strings.auth.invalid_username_or_password);
       } else {
-        setUser({ username: user.username });
+        setUser(user);
         navigate("/home");
       }
     },

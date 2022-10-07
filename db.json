@@ -1,20 +1,158 @@
 {
   "users": [
     {
-      "username": "guest",
-      "password": "password"
-    },
-    {
-      "username": "asmar",
-      "password": "password"
-    },
-    {
       "username": "admin",
-      "password": "password"
+      "password": "password",
+      "role": "Super Admin",
+      "registered_on": "2019-01-01T00:00:00Z",
+      "address": "Zone No: 0, Street No: 0, Building No: 0"
     },
     {
-      "username": "asda",
-      "password": "asdasdasd"
+      "username": "Asmar",
+      "password": "password",
+      "role": "Super Admin",
+      "registered_on": "2019-01-01T00:00:00Z",
+      "address": "Zone No: 0, Street No: 0, Building No: 0"
+    },
+    {
+        "username": "GKostiuk",
+        "password": "TyCOaY9L",
+        "role": "Super Admin",
+        "registered_on": "2021-07-06T02:46:51.355Z",
+        "address": "Zone No: 19, Street No: 834, Building No: 603"
+    },
+    {
+        "username": "TWasson",
+        "password": "pj3MQEen",
+        "role": "Admin",
+        "registered_on": "2020-11-27T10:59:56.375Z",
+        "address": "Zone No: 41, Street No: 506, Building No: 363"
+    },
+    {
+        "username": "CAzcunaga",
+        "password": "Tyo2VFhD",
+        "role": "Admin",
+        "registered_on": "2020-02-20T02:23:04.581Z",
+        "address": "Zone No: 67, Street No: 969, Building No: 346"
+    },
+    {
+        "username": "BHaiduke",
+        "password": "FgKPekU9",
+        "role": "Admin",
+        "registered_on": "2020-05-01T16:37:46.006Z",
+        "address": "Zone No: 29, Street No: 157, Building No: 462"
+    },
+    {
+        "username": "KWahl",
+        "password": "FnjC0x53",
+        "role": "Super Admin",
+        "registered_on": "2020-07-12T12:43:53.451Z",
+        "address": "Zone No: 63, Street No: 415, Building No: 522"
+    },
+    {
+        "username": "CBoyle",
+        "password": "PeK0KPZS",
+        "role": "User",
+        "registered_on": "2021-05-23T05:43:39.540Z",
+        "address": "Zone No: 21, Street No: 23, Building No: 490"
+    },
+    {
+        "username": "TNutter",
+        "password": "magkIMjx",
+        "role": "Super Admin",
+        "registered_on": "2020-01-03T15:03:15.242Z",
+        "address": "Zone No: 8, Street No: 220, Building No: 753"
+    },
+    {
+        "username": "SHough",
+        "password": "TaFXbZHL",
+        "role": "Admin",
+        "registered_on": "2022-02-02T03:33:02.754Z",
+        "address": "Zone No: 7, Street No: 244, Building No: 421"
+    },
+    {
+        "username": "JMcglaughlin",
+        "password": "8h3UJK5U",
+        "role": "Admin",
+        "registered_on": "2021-10-18T14:52:28.768Z",
+        "address": "Zone No: 9, Street No: 822, Building No: 800"
+    },
+    {
+        "username": "IKaspar",
+        "password": "bSvJDP4R",
+        "role": "User",
+        "registered_on": "2021-09-20T23:13:12.567Z",
+        "address": "Zone No: 68, Street No: 654, Building No: 592"
+    },
+    {
+        "username": "AHawthorne",
+        "password": "nVeMOsqw",
+        "role": "Super Admin",
+        "registered_on": "2020-10-07T21:27:59.496Z",
+        "address": "Zone No: 58, Street No: 115, Building No: 682"
+    },
+    {
+        "username": "LGarbe",
+        "password": "2sVPFz6L",
+        "role": "User",
+        "registered_on": "2021-10-06T06:25:42.146Z",
+        "address": "Zone No: 21, Street No: 976, Building No: 372"
+    },
+    {
+        "username": "GMcnally",
+        "password": "Ak0oIfDo",
+        "role": "User",
+        "registered_on": "2021-06-04T03:52:25.108Z",
+        "address": "Zone No: 51, Street No: 129, Building No: 356"
+    },
+    {
+        "username": "RFenton",
+        "password": "uzf9gYPk",
+        "role": "Super Admin",
+        "registered_on": "2022-01-30T02:20:53.645Z",
+        "address": "Zone No: 7, Street No: 375, Building No: 996"
+    },
+    {
+        "username": "VGershowitz",
+        "password": "fuTf1wpg",
+        "role": "Admin",
+        "registered_on": "2021-01-09T21:08:13.436Z",
+        "address": "Zone No: 2, Street No: 477, Building No: 467"
+    },
+    {
+        "username": "HRannila",
+        "password": "4xfV2Ny8",
+        "role": "User",
+        "registered_on": "2020-09-25T18:29:22.026Z",
+        "address": "Zone No: 2, Street No: 369, Building No: 589"
+    },
+    {
+        "username": "AMelendez",
+        "password": "sIaDqate",
+        "role": "Admin",
+        "registered_on": "2020-09-30T18:24:17.796Z",
+        "address": "Zone No: 38, Street No: 602, Building No: 67"
+    },
+    {
+        "username": "MReviews",
+        "password": "npgotK91",
+        "role": "Super Admin",
+        "registered_on": "2020-08-26T00:59:09.749Z",
+        "address": "Zone No: 47, Street No: 75, Building No: 24"
+    },
+    {
+        "username": "JAbundo",
+        "password": "BJLp8Hu4",
+        "role": "Super Admin",
+        "registered_on": "2021-08-23T10:11:54.214Z",
+        "address": "Zone No: 15, Street No: 258, Building No: 147"
+    },
+    {
+        "username": "ADelatorre",
+        "password": "xfMNrZE0",
+        "role": "Super Admin",
+        "registered_on": "2020-06-07T12:53:57.316Z",
+        "address": "Zone No: 44, Street No: 272, Building No: 464"
     }
   ]
 }

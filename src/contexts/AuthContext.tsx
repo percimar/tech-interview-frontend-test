@@ -1,6 +1,8 @@
 import * as React from "react";
 
-type User = { username: string }; // TODO: add more fields
+type UserRole = "User" | "Admin" | "Super Admin";
+type ISOString = string;
+type User = { username: string; role: UserRole; registered_on: ISOString };
 type UserState = User | undefined;
 
 const AuthContext = React.createContext<
@@ -48,4 +50,4 @@ function useAuth() {
 }
 
 export { AuthProvider, useAuth };
-export type { User, UserState };
+export type { User, UserState, UserRole, ISOString };

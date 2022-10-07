@@ -1,0 +1,46 @@
+.UserList {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 30vw;
+    min-width: 20vw;
+    width: 100%;
+    max-height: calc(100vh - 60px);
+    background-color: #CBF1F5;
+    border: 2px solid #A6E3E9;
+}
+
+// Adapted from https://cssloaders.github.io/
+.Spinner {
+    width: 8vw;
+    height: 8vw;
+    border: 1vw solid #00ADB5;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+.ErrorMessage {
+    font-size: max(1.5vw, 1em);
+    font-weight: bold;
+    max-width: 90%;
+    text-align: center;
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
