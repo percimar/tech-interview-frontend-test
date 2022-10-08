@@ -7,9 +7,15 @@ import FormInput from "../FormInput/FormInput";
 
 import { useMutation, useQueryClient } from "react-query";
 
-type UserDetailsFormParams = { selectedUser: UserState };
+interface UserDetailsFormParams {
+  selectedUser: UserState;
+  clearSelectedUser: () => void;
+}
 type FormResult = { message: string; success: boolean } | undefined;
-const UserDetailsForm = ({ selectedUser }: UserDetailsFormParams) => {
+const UserDetailsForm = ({
+  selectedUser,
+  clearSelectedUser,
+}: UserDetailsFormParams) => {
   const strings = useLocales();
   const queryClient = useQueryClient();
 
@@ -30,12 +36,12 @@ const UserDetailsForm = ({ selectedUser }: UserDetailsFormParams) => {
     if (selectedUser) {
       setUsername(selectedUser.username);
       setRole(selectedUser.role);
+      setUpdateUserResult(undefined);
     } else {
       setUsername("");
       setRole(undefined);
     }
     setUsernameError("");
-    setUpdateUserResult(undefined);
   }, [selectedUser]);
 
   const { mutate: mutateUser } = useMutation(updateUser, {
@@ -46,6 +52,7 @@ const UserDetailsForm = ({ selectedUser }: UserDetailsFormParams) => {
           success,
         });
         queryClient.invalidateQueries("userList");
+        clearSelectedUser();
       } else {
         setUpdateUserResult({
           message: strings.general.something_went_wrong,

@@ -7,9 +7,15 @@ import "./ChangePasswordForm.scss";
 import { useMutation } from "react-query";
 import FormInput from "../FormInput/FormInput";
 
-type ChangePasswordFormParams = { selectedUser: UserState };
+interface ChangePasswordFormParams {
+  selectedUser: UserState;
+  clearSelectedUser: () => void;
+}
 type FormResult = { message: string; success: boolean } | undefined;
-const ChangePasswordForm = ({ selectedUser }: ChangePasswordFormParams) => {
+const ChangePasswordForm = ({
+  selectedUser,
+  clearSelectedUser,
+}: ChangePasswordFormParams) => {
   const strings = useLocales();
 
   const [password, setPassword] = useState<string>("");
@@ -25,6 +31,7 @@ const ChangePasswordForm = ({ selectedUser }: ChangePasswordFormParams) => {
           message: strings.home.password_changed_successfully,
           success,
         });
+        clearSelectedUser();
       } else {
         setChangePassResult({
           message: strings.general.something_went_wrong,
@@ -35,11 +42,13 @@ const ChangePasswordForm = ({ selectedUser }: ChangePasswordFormParams) => {
   });
 
   useEffect(() => {
+    if (selectedUser) {
+      setChangePassResult(undefined);
+    }
     setPassword("");
     setConfirmPass("");
     setPasswordError("");
     setConfirmPassError("");
-    setChangePassResult(undefined);
   }, [selectedUser]);
 
   const handleUpdatePassword = (event: React.FormEvent<HTMLFormElement>) => {
