@@ -4,16 +4,18 @@ type FormInputParams<T> = {
   value: T;
   setValue: React.Dispatch<React.SetStateAction<T>>;
   label: string;
-  error: string;
+  error?: string;
   type?: React.HTMLInputTypeAttribute;
+  disabled?: boolean;
 };
 
 const FormInput = ({
   value,
   setValue,
   label,
-  error,
+  error = "",
   type = "text",
+  disabled = false,
 }: FormInputParams<any>) => {
   return (
     <>
@@ -26,6 +28,7 @@ const FormInput = ({
         name={label}
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        disabled={disabled}
       />
       <div className="FormError">{error}</div>
     </>

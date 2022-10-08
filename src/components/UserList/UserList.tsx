@@ -4,11 +4,11 @@ import { useQuery } from "react-query";
 import { getUsers } from "../../api";
 import UserCard from "../UserCard/UserCard";
 import useLocales from "../../hooks/useLocales";
-import type { User } from "../../contexts/AuthContext";
+import type { User } from "../../models/User";
 
 type UserListParams = {
   selectUser: (user: User) => void;
-  deleteUser: (username: string) => void;
+  deleteUser: (id: number) => void;
 };
 const UserList = ({ selectUser, deleteUser }: UserListParams) => {
   const strings = useLocales();
@@ -35,7 +35,7 @@ const UserList = ({ selectUser, deleteUser }: UserListParams) => {
     return (
       <div className="UserList">
         <span className="ErrorMessage">
-          {strings.home.something_went_wrong}
+          {strings.general.something_went_wrong}
         </span>
       </div>
     );
@@ -47,10 +47,10 @@ const UserList = ({ selectUser, deleteUser }: UserListParams) => {
         (user) =>
           user && (
             <UserCard
-              key={user.username}
+              key={user.id}
               username={user.username}
               onSelect={() => selectUser(user)}
-              onDelete={() => deleteUser(user.username)}
+              onDelete={() => deleteUser(user.id)}
             />
           )
       )}

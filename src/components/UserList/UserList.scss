@@ -1,11 +1,11 @@
 .UserList {
+    flex: 1 0 content;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
     max-width: 30vw;
     min-width: 20vw;
-    width: 100%;
     max-height: calc(100vh - 60px);
     background-color: #CBF1F5;
     border: 2px solid #A6E3E9;

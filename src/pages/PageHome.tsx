@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserForm from "../components/UserForm/UserForm";
 import UserList from "../components/UserList/UserList";
-import type { UserState } from "../contexts/AuthContext";
+import type { User, UserState } from "../models/User";
 
 import { useMutation, useQueryClient } from "react-query";
 import { deleteUser } from "../api";
@@ -16,9 +16,13 @@ function PageHome() {
     },
   });
 
+  const selectUser = (user: User) => {
+    setSelectedUser(user.id === selectedUser?.id ? undefined : user);
+  };
+
   return (
     <>
-      <UserList selectUser={setSelectedUser} deleteUser={mutate} />
+      <UserList selectUser={selectUser} deleteUser={mutate} />
       <UserForm selectedUser={selectedUser} />
     </>
   );

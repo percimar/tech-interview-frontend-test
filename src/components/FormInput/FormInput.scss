@@ -1,6 +1,5 @@
 .FormLabel {
     display: block;
-    font-weight: 600;
     font-size: 1.25em;
     line-height: 2em;
     align-self: flex-start;
@@ -15,9 +14,15 @@
     border: unset;
     border-radius: 4px;
     outline-color: #00ADB5;
-    background-color: rgb(255, 255, 255);
-    min-width: 206px;
-    width: 100%;
+    background-color: white;
+    min-width: 106px;
+    width: 20vw;
+    max-width: 280px;
+    box-sizing: border-box;
+}
+
+.FormInput:disabled {
+    background-color: #dddddd;
 }
 
 .FormError {

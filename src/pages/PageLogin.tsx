@@ -5,7 +5,8 @@ import { AuthParams, login } from "../api";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
-import { useAuth, type UserState } from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
+import { UserState } from "../models/User";
 
 type PageLoginState = { isRegistered?: boolean };
 const PageLogin = () => {

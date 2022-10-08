@@ -10,6 +10,7 @@ type translations = {
         privacy_policy: string,
         contact: string,
         submit: string,
+        something_went_wrong: string,
     },
     auth: {
         username: string,
@@ -27,7 +28,14 @@ type translations = {
         delete: string,
         select: string,
         fetching_failed: string,
-        something_went_wrong: string,
+        edit_user: string,
+        change_password: string,
+        role: string,
+        registered_date: string,
+        user_updated_successfully: string,
+        password_changed_successfully: string,
+        update_user_details: string,
+        update_password: string,
     },
     navbar: {
         title: string
@@ -43,7 +51,8 @@ const en: translations = {
         about: "About Us",
         privacy_policy: "Privacy Policy",
         contact: "Contact",
-        submit: "Submit"
+        submit: "Submit",
+        something_went_wrong: "Something went wrong, please try again later.",
     },
     auth: {
         username: "Username",
@@ -61,7 +70,14 @@ const en: translations = {
         delete: "Delete",
         select: "Select",
         fetching_failed: "Failed to fetch data, please try again later.",
-        something_went_wrong: "Something went wrong, please try again later.",
+        edit_user: "Edit User",
+        change_password: "Change Password",
+        role: "Role",
+        registered_date: "Registeration Date",
+        user_updated_successfully: "User updated successfully",
+        password_changed_successfully: "Password changed successfully",
+        update_user_details: "Update User Details",
+        update_password: "Update Password",
     },
     navbar: {
         title: "Tech Test",

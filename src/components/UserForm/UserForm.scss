@@ -1,0 +1,29 @@
+.FormContainer {
+    flex: 1 0 content;
+    margin-left: max(2vw, 30px);
+    margin-right: auto;
+    width: 100%;
+    background-color: #CBF1F5;
+    border: 2px solid #A6E3E9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5vh;
+}
+
+.UserForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.Divider {
+    flex: 0 0 0;
+    width: 0;
+    height: 50%;
+    align-self: center;
+    // using border instead of border-left causes two lines to be shown
+    // sometimes, even though width is 0
+    border-left: 3px solid #00ADB5;
+}

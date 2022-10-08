@@ -1,9 +1,12 @@
 import axios from 'axios';
-import type { User, UserState } from './contexts/AuthContext';
+import type { User, UserState } from './models/User';
 
 const baseURL = "http://localhost:3001";
 
-export type AuthParams = {username: string, password: string}
+export interface AuthParams {
+    username: string,
+    password: string
+}
 export const register = async ({username, password}: AuthParams) => {
     // Don't have access to bcrypt or crypto on the client side,
     // so I'm just sending the password in plain text, would never
@@ -46,7 +49,25 @@ export const getUsers = async () => {
     return users as User[];
 }
 
-export const deleteUser = async (username: string) => {
-    const res = await axios.delete(`${baseURL}/users/${username}`);
+export const deleteUser = async (id: number) => {
+    const res = await axios.delete(`${baseURL}/users/${id}`);
+    return res.status === 200;
+}
+
+interface UpdateUserParams {
+    id: number,
+    user: Partial<User>
+}
+export const updateUser = async ({id, user}: UpdateUserParams) => {
+    const res = await axios.patch(`${baseURL}/users/${id}`, user);
+    return res.status === 200;
+}
+
+interface ChangePasswordParams {
+    id: number, 
+    password: string
+}
+export const changePassword = async ({id, password}: ChangePasswordParams) => {
+    const res = await axios.patch(`${baseURL}/users/${id}`, {password});
     return res.status === 200;
 }

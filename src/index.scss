@@ -36,7 +36,6 @@ code {
 .FormTitle {  
   font-size: 2em;
   margin: 0;
-  margin-bottom: 2em;
   text-align: center;
 }
 
@@ -71,4 +70,42 @@ code {
   background-color: lighten(#393E46, 25%);
   border: 2px solid #00ADB5;
   margin: 18px -2px -2px -2px; //workaround to avoid layout shift on border
+}
+
+.FormSubtitle {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.FormSelect {
+  font-size: 1em;
+  //line-height: 1.6em; // line-height does not work for <select> in chrome
+  padding: calc(4px + 0.3em) 8px; // line-height added through padding instead
+  min-height: 22px;
+  border: unset;
+  border-radius: 4px;
+  outline-color: #00ADB5;
+  background-color: white;
+  min-width: 106px;
+  width: 20vw;
+  max-width: 280px;
+  box-sizing: border-box;
+  margin-bottom: 1.2em;
+}
+
+.FormResult {
+  font-size: 0.8em;
+  line-height: 1.2em;
+  height: 1.2em;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.FormResult.Success {
+  color: green;
+}
+
+.FormResult.Failure {
+  color: red;
 }
