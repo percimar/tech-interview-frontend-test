@@ -20,6 +20,12 @@ const NavBar = () => {
     <div className={isOpen ? "NavBar NavOpen" : "NavBar NavClosed"}>
       <FAB />
       <h1>{strings.navbar.title}</h1>
+      <button
+        className="LanguageBtn"
+        onClick={() => setLang(lang === "en" ? "ar" : "en")}
+      >
+        {strings.navbar.switch_language}
+      </button>
       <div className="TopLinks">
         {user ? (
           <>
@@ -30,7 +36,9 @@ const NavBar = () => {
               {strings.general.home}
             </NavLink>
             <button className="Link" onClick={handleLogout}>
-              {strings.general.logout + " " + user.username}
+              {lang === "en"
+                ? strings.general.logout + " " + user.username
+                : strings.general.logout}
             </button>
           </>
         ) : (

@@ -1,7 +1,4 @@
 .FormContainer {
-    flex: 1 0 content;
-    margin-left: max(2vw, 30px);
-    margin-right: auto;
     width: 100%;
     background-color: #CBF1F5;
     border: 2px solid #A6E3E9;
@@ -9,6 +6,16 @@
     flex-direction: column;
     align-items: center;
     padding-top: 5vh;
+}
+
+[dir="ltr"] .FormContainer {
+    margin-left: max(2vw, 30px);
+    margin-right: auto;
+}
+
+[dir="rtl"] .FormContainer {
+    margin-left: auto;
+    margin-right: max(2vw, 30px);
 }
 
 .UserForm {

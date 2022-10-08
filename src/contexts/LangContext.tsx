@@ -12,6 +12,14 @@ const LangContext = React.createContext<
 
 function LangProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = React.useState<Language>("en");
+
+  React.useEffect(() => {
+    if (lang === "ar") {
+      document.body.dir = "rtl";
+    } else {
+      document.body.dir = "ltr";
+    }
+  }, [lang]);
   return (
     <LangContext.Provider value={{ lang, setLang }}>
       {children}
