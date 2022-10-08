@@ -12,6 +12,8 @@ const ar: Translations = {
         contact: "اتصل بنا",
         submit: "تقديم النموذج",
         something_went_wrong: "هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق",
+        not_found: "الصفحة غير موجودة",
+        back_to_home: "العودة للصفحة الرئيسية",
     },
     auth: {
         username: "اسم االمستخدم",

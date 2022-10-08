@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./PageHome.scss";
-import UserList from "../components/UserList/UserList";
-import type { User, UserState } from "../models/User";
-import { deleteUser } from "../api";
-import UserDetailsForm from "../components/UserDetailsForm/UserDetailsForm";
-import ChangePasswordForm from "../components/ChangePasswordForm/ChangePasswordForm";
-import useLocales from "../hooks/useLocales";
+import UserList from "../../components/UserList/UserList";
+import type { User, UserState } from "../../models/User";
+import { deleteUser } from "../../api";
+import UserDetailsForm from "../../components/UserDetailsForm/UserDetailsForm";
+import ChangePasswordForm from "../../components/ChangePasswordForm/ChangePasswordForm";
+import useLocales from "../../hooks/useLocales";
 
 import { useMutation, useQueryClient } from "react-query";
 

@@ -11,6 +11,8 @@ const en: Translations = {
         contact: "Contact",
         submit: "Submit",
         something_went_wrong: "Something went wrong, please try again later.",
+        not_found: "Page not found",
+        back_to_home: "Back to home",
     },
     auth: {
         username: "Username",

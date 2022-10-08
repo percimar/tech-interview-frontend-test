@@ -18,6 +18,8 @@ interface Translations {
         contact: string,
         submit: string,
         something_went_wrong: string,
+        not_found: string,
+        back_to_home: string,
     },
     auth: {
         username: string,

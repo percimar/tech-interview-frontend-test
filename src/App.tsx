@@ -1,8 +1,8 @@
 import "./App.scss";
 import MainLayout from "./components/MainLayout/MainLayout";
 import { useAuth } from "./contexts/AuthContext";
-import Page404 from "./pages/Page404";
-import PageHome from "./pages/PageHome";
+import Page404 from "./pages/Page404/Page404";
+import PageHome from "./pages/PageHome/PageHome";
 import PageLogin from "./pages/PageLogin";
 import PageRegister from "./pages/PageRegister";
 
