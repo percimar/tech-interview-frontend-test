@@ -4,11 +4,12 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    max-width: 30vw;
-    min-width: 20vw;
-    max-height: calc(100vh - 60px);
+    min-width: max(20vw, 200px);
+    height: 100%;
+    max-height: calc(100vh - max(4vh, 30px));
     background-color: #CBF1F5;
     border: 2px solid #A6E3E9;
+    box-sizing: border-box;
 }
 
 // Adapted from https://cssloaders.github.io/

@@ -1,6 +1,13 @@
 # Tech Interview Frontend Test
 
-React project created with create-react-app. Includes routing with react-router-dom v6, global state management with useContext, http requests with react-query and axios, english and arabic locales, unit tests with testing-library, and e2e tests with cypress.
+React project created with create-react-app. Featuring:
+
+- Global state management with useContext
+- Routing with react-router-dom v6
+- HTTP requests with react-query and axios
+- English and Arabic locales
+- Unit tests with testing-library
+- E2E tests with cypress.
 
 ## Run Locally
 
@@ -21,7 +28,7 @@ Checkout the repository, then install the dependencies with:
 Run json-server on port 3001 (port 3000 will be used by react app):
 
 ```bash
-    json-server --watch build/db.json --port 3001
+    json-server --watch db.json --port 3001
 ```
 
 Run react app in another terminal with:

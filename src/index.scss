@@ -1,4 +1,5 @@
 body {
+  background-color: #E3FDFD;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -19,8 +20,7 @@ code {
   background-color: #CBF1F5;
   min-width: 260px;
   width: min(80%, 400px);
-  min-height: 600px;
-  min-height: min(90%, 700px);
+  min-height: 500px;
 
   display: flex;
   flex-direction: column;
@@ -58,19 +58,20 @@ code {
   outline-color: #00ADB5;
   align-self: flex-end;
   margin-top: 20px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
 .FormSubmit:hover {
   background-color: lighten(#393E46, 12%);
   border: 2px solid #00ADB5;
-  margin: 18px -2px -2px -2px; //workaround to avoid layout shift on border
+  margin: 18px -2px 18px -2px; //workaround to avoid layout shift on border
 }
 
 .FormSubmit:active {
   background-color: lighten(#393E46, 25%);
   border: 2px solid #00ADB5;
-  margin: 18px -2px -2px -2px; //workaround to avoid layout shift on border
+  margin: 18px -2px 18px -2px; //workaround to avoid layout shift on border
 }
 
 .FormSubtitle {

@@ -3,13 +3,20 @@
     height: 100%;
     flex-direction: row;
     display: flex;
-    background-color: #E3FDFD;
     color: black;
 }   
 
+@media (max-width: 768px) {
+    .Container {
+        flex-direction: column;
+    }
+}
+
 .Container {
     display: flex;
-    padding: 30px;
+    padding: max(2vh, 15px) max(2vw, 15px);
     width: 100%;
+    max-height: 100vh;
     justify-content: space-between;
+    box-sizing: border-box;
 }
