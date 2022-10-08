@@ -21,8 +21,10 @@ const NavBar = () => {
       <FAB />
       <h1>{strings.navbar.title}</h1>
       <button
-        className="LanguageBtn"
+        id="LangBtn"
+        className="LangBtn"
         onClick={() => setLang(lang === "en" ? "ar" : "en")}
+        data-testid="LangBtn"
       >
         {strings.navbar.switch_language}
       </button>

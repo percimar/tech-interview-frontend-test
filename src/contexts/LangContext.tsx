@@ -15,9 +15,11 @@ function LangProvider({ children }: { children: React.ReactNode }) {
 
   React.useEffect(() => {
     if (lang === "ar") {
-      document.body.dir = "rtl";
+      document.documentElement.lang = "ar";
+      document.dir = "rtl";
     } else {
-      document.body.dir = "ltr";
+      document.documentElement.lang = "en";
+      document.dir = "ltr";
     }
   }, [lang]);
   return (
