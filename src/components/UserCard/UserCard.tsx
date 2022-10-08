@@ -2,17 +2,18 @@ import { useState } from "react";
 import "./UserCard.scss";
 import useLocales from "../../hooks/useLocales";
 import { useAuth } from "../../contexts/AuthContext";
+import { User } from "../../models/User";
 
 type onClickEvent = React.MouseEvent<HTMLButtonElement, MouseEvent>;
 type UserCardParams = {
-  username: string;
+  user: User;
   onSelect: (event: onClickEvent) => void;
   onDelete: (event: onClickEvent) => void;
 };
-const UserCard = ({ username, onSelect, onDelete }: UserCardParams) => {
+const UserCard = ({ user, onSelect, onDelete }: UserCardParams) => {
   const [isDeleteDisabled, setIsDeleteDisabled] = useState<boolean>(false);
   const strings = useLocales();
-  const { user } = useAuth();
+  const { user: currentUser } = useAuth();
 
   const handleDelete = (event: onClickEvent) => {
     // Prevents double clicking of delete, which could send duplicate
@@ -27,12 +28,12 @@ const UserCard = ({ username, onSelect, onDelete }: UserCardParams) => {
   return (
     <div className="UserCard">
       <img
-        src={`https://robohash.org/${username}.png?set=set3`}
-        alt={`A randomly generated avatar representing ${username}`}
+        src={`https://robohash.org/${user.id}.png?set=set3`}
+        alt={`A randomly generated avatar representing ${user.username}`}
         className="UserAvatar"
       />
       <div className="UserDetails">
-        <span className="UserName">{username}</span>
+        <span className="UserName">{user.username}</span>
         <div className="UserActions">
           <button onClick={onSelect} className="UserSelectBtn">
             {strings.home.select}
@@ -40,7 +41,9 @@ const UserCard = ({ username, onSelect, onDelete }: UserCardParams) => {
           <button
             onClick={handleDelete}
             className="UserDeleteBtn"
-            disabled={isDeleteDisabled || user?.username === username}
+            disabled={
+              isDeleteDisabled || currentUser?.username === user.username
+            }
           >
             {strings.home.delete}
           </button>

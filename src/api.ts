@@ -71,3 +71,13 @@ export const changePassword = async ({id, password}: ChangePasswordParams) => {
     const res = await axios.patch(`${baseURL}/users/${id}`, {password});
     return res.status === 200;
 }
+
+export const isUsernameUnique = async (username: string): Promise<boolean> => {
+    const res = await axios.get(`${baseURL}/users`, {
+        params: {
+            username_like: `^${username}$`
+        }
+    });
+
+    return res.data.length === 0;
+}

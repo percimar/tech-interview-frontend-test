@@ -25,6 +25,7 @@ const en: Translations = {
         passwords_do_not_match: "Passwords do not match",
         account_created: "Account created successfully, you may now login.",
         invalid_username_or_password: "Invalid username or password",
+        username_already_exists: "Username already exists",
     },
     home: {
         delete: "Delete",

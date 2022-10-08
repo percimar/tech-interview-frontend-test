@@ -1,22 +1,29 @@
 import { useState } from "react";
 import FormInput from "../components/FormInput/FormInput";
 import useLocales from "../hooks/useLocales";
-import { register } from "../api";
+import { isUsernameUnique, register } from "../api";
 
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 
 const PageRegister = () => {
   const strings = useLocales();
-  const { mutate } = useMutation(register, {
+  const { mutate: registerUser } = useMutation(register, {
     onSettled: (success) => {
       if (success) {
         navigate("/login", { state: { isRegistered: true } });
       } else {
-        // json-server returns 500 if username is taken, so we can't distinguish
-        // between that and a server error. Hopefully not a problem with a real
-        // backend.
-        setUsernameError("Username already taken");
+        setConfirmPassError(strings.general.something_went_wrong);
+      }
+    },
+  });
+
+  const { mutate: checkUsername } = useMutation(isUsernameUnique, {
+    onSettled: (isUnique) => {
+      if (!isUnique) {
+        setUsernameError(strings.auth.username_already_exists);
+      } else {
+        registerUser({ username, password });
       }
     },
   });
@@ -70,7 +77,7 @@ const PageRegister = () => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
 
-    if (isFormValid()) mutate({ username, password });
+    if (isFormValid()) checkUsername(username);
   };
 
   return (

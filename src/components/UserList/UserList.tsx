@@ -48,7 +48,7 @@ const UserList = ({ selectUser, deleteUser }: UserListParams) => {
           user && (
             <UserCard
               key={user.id}
-              username={user.username}
+              user={user}
               onSelect={() => selectUser(user)}
               onDelete={() => deleteUser(user.id)}
             />

@@ -26,6 +26,7 @@ const ar: Translations = {
         passwords_do_not_match: "كلمة السر غير مطابقة",
         account_created: "تم إنشاء الحساب بنجاح ، يمكنك الآن تسجيل الدخول",
         invalid_username_or_password: "خطأ في اسم المستخدم أو كلمة سر",
+        username_already_exists: "اسم المستخدم موجود بالفعل",
     },
     home: {
         delete: "حذف",

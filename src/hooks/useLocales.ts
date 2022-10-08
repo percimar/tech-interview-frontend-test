@@ -32,6 +32,7 @@ interface Translations {
         passwords_do_not_match: string,
         account_created: string,
         invalid_username_or_password: string,
+        username_already_exists: string,
     },
     home: {
         delete: string,

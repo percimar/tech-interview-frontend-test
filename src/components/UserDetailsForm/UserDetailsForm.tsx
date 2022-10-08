@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./UserDetailsForm.scss";
-import { updateUser } from "../../api";
+import { isUsernameUnique, updateUser } from "../../api";
 import useLocales from "../../hooks/useLocales";
 import { type UserRole, type UserState, USER_ROLES } from "../../models/User";
 import FormInput from "../FormInput/FormInput";
@@ -62,6 +62,17 @@ const UserDetailsForm = ({
     },
   });
 
+  const { mutate: checkUsername } = useMutation(isUsernameUnique, {
+    onSettled: (isUnique) => {
+      if (!isUnique) {
+        setUsernameError(strings.auth.username_already_exists);
+      } else if (selectedUser !== undefined) {
+        // check only for TS purposes
+        mutateUser({ id: selectedUser.id, user: { username, role } });
+      }
+    },
+  });
+
   const handleUpdateDetails = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setUpdateUserResult(undefined);
@@ -83,7 +94,9 @@ const UserDetailsForm = ({
     }
 
     if (usernameValid) {
-      mutateUser({ id: selectedUser.id, user: { username, role } });
+      username === selectedUser.username
+        ? mutateUser({ id: selectedUser.id, user: { username, role } })
+        : checkUsername(username);
     }
   };
 
